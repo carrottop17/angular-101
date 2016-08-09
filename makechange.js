@@ -24,15 +24,19 @@ makeChangeApp.controller('makeChangeController', function($scope){
 		for (var i = 0; i < change.length; i++) {
 			if(change[i] == 25){
 				quarters++;
+				$scope.quarter = "quarter-front.png";
 			}
 			if(change[i] == 10){
 				dimes++;
+				$scope.dime = "dime-front.png";
 			}
 			if(change[i] == 5){
 				nickels++;
+				$scope.nickel = "nickle-front.png";
 			}
 			if(change[i] == 1){
 				pennies++;
+				$scope.penny = "penny-front.png";
 			}
 		}
 		$scope.quarters = quarters;

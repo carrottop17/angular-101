@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="styleApp">
+<head>
+	<title></title>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+	<script type="text/javascript" src="ngme.js"></script>
+
+	<style type="text/css" media="screen">
+		.trueStoryClass{
+			font-weight: bold;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body ng-controller="styleController">
+	<div id="wrapper" ng-style="{color: myColor}">
+		<div id="header">
+			<h1>Consider the following...</h1>
+
+		</div>
+		<div class ="item" ng-repeat="student in students track by $index">
+			Name: {{student.name}} - 
+			<input type="checkbox" ng-model="student.checked">
+			<span ng-show="student.checked" ng-class="{'trueStoryClass' : makeMeBig}">True {{student.former}}</span>
+		</div>
+	</div>
+	<div class="color-input">
+		<input type="text" ng-model="myColor">
+	</div>
+
+	<label>Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true"></label>
+	<hr />
+	<span ng-show="checked">Show when checked
+	</span>
+	<hr />
+	<!-- removes from DOM -->
+	<span ng-if="checked">
+		This is removed when the checkbox is unchecked.
+	</span>
+	<hr />
+	<div ng-hide="myColor=='red'">
+		I will hide if the color is set to red
+	</div>
+	<button ng-click="makeMeBig=1">Make Student Desc Big</button>
+
+</body>
+</html>
